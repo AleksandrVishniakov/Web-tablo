@@ -1,0 +1,416 @@
+:root {
+    --background_color: #000000;
+    --text_color: #FFFFFF;
+    --interface_color: #FFA500;
+    --window_background_color: #FFFFFF;
+    --window_text_color: #000000;
+    --font: Rockwell Nova;
+    --placeholder_color: #8f8f8f;
+    --background_img: none;
+    --play: url(../img/play.png);
+    --pause: url(../img/pause.png);
+    --reset: url(../img/reset.png);
+    --settings: url(../img/settings.png);
+}
+
+* {
+    margin: 0;
+}
+
+input::-webkit-input-placeholder {
+    color: var(--placeholder_color);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button,
+button:active,
+button:focus {
+    border: none;
+}
+
+:active,
+:hover,
+:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.table {
+    background-color: var(--background_color);
+    background-image: var(--background_img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1920px;
+    height: 1080px;
+}
+
+.teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 80%;
+
+    font-family: var(--font);
+    color: var(--text_color);
+    font-size: 56px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    white-space: nowrap;
+}
+
+.counts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 80%;
+    height: 400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#team1_counter {
+    width: 190px;
+    height: 380px;
+}
+
+#team2_counter {
+    width: 190px;
+    height: 380px;
+}
+
+.teams_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 600px;
+}
+
+.counter_values {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 400px;
+    height: 254px;
+}
+
+.cActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 72%;
+    height: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plus_minus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 240px;
+}
+
+.plusButton {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background-color: var(--background_color);
+    color: var(--interface_color);
+
+    font-family: var(--font);
+    font-size: 56px;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 900px;
+
+    margin-left: auto;
+    margin-top: 50px;
+    margin-right: auto;
+}
+
+#min1 {
+    width: 190px;
+    height: 380px;
+}
+
+#min2 {
+    width: 190px;
+    height: 380px;
+}
+
+#sec1 {
+    width: 190px;
+    height: 380px;
+}
+
+#sec2 {
+    width: 190px;
+    height: 380px;
+}
+
+.point {
+    color: var(--interface_color);
+    font-size: 170px;
+    margin-top: 180px;
+}
+
+.timerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 50px;
+    height: 380px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tButton {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    background-color: var(--background_color);
+    color: var(--interface_color);
+
+    font-family: var(--font);
+    font-size: 28px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+#periods {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+
+    margin-left: auto;
+    margin-top: -750px;
+    margin-right: auto;
+
+    width: 300px;
+    height: 56px;
+}
+
+#periodName {
+    font-family: var(--font);
+
+    color: white;
+
+    font-size: 56px;
+
+}
+
+#periodCanvas {
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#timerCanvas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 100%;
+}
+
+.periodButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 170px;
+    margin-left: auto;
+    margin-top: 50px;
+    margin-right: auto;
+}
+
+.setWindow {
+    position: absolute;
+    z-index: 100;
+    margin-left: 1750px;
+    margin-top: 605px;
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background-color: var(--background_color);
+    color: var(--interface_color);
+
+    font-family: var(--font);
+    font-size: 28px;
+}
+
+.pause {
+    background-image: var(--pause);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.play {
+    background-image: var(--play);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.reset {
+    background-image: var(--reset);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.settings {
+    background-image: var(--settings);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.modalWindow {
+    position: absolute;
+    background-color: var(--window_background_color);
+    width: 1000px;
+    height: 800px;
+    margin-left: calc((1920px - 1100px) / 2);
+    margin-top: -1000px;
+    padding: 50px;
+    border-radius: 10px;
+    transition-duration: .3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalWindow.open {
+    margin-top: calc((1080px - 900px) / 2);
+}
+
+.text {
+    font-family: var(--font);
+    color: var(--window_text_color);
+    font-size: 30px;
+}
+
+
+.team_settings {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    justify-content: space-around;
+    width: inherit;
+}
+
+.team_set {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 47%;
+}
+
+.team_wrapper {
+    margin: auto;
+    height: 80%;
+    width: 2px;
+    background-color: var(--window_text_color);
+    opacity: 0.5;
+}
+
+.team_set>input {
+    width: 90%;
+    border: none;
+    background-color: var(--window_background_color);
+    border-bottom: solid 3px var(--window_text_color);
+    font-family: var(--font);
+    color: var(--window_text_color);
+    font-size: 30px;
+}
+
+.setButtons {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.setButtons>button {
+    width: 47%;
+    height: 50px;
+    border: solid 4px var(--window_text_color);
+    font-family: var(--font);
+    font-size: 30px;
+    border-radius: 10px;
+    transition-duration: .3s;
+}
+
+div.setButtons>button:hover {
+    margin-top: -5px;
+}
+
+div.setButtons>button:nth-child(1) {
+    background-color: var(--window_text_color);
+    color: var(--window_background_color);
+}
+
+div.setButtons>button:nth-child(2) {
+    background-color: var(--window_background_color);
+    color: var(--window_text_color);
+}
+
+form.setButtons>input,
+form.setButtons>select {
+    width: 47%;
+    border: none;
+    background-color: var(--window_background_color);
+    border-bottom: solid 3px var(--window_text_color);
+    font-family: var(--font);
+    color: var(--window_text_color);
+    font-size: 30px;
+}
+
+form.setButtons>div {
+    display: flex;
+    flex-direction: row;
+    width: 27%;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: space-around;
+}
+
+form.setButtons>div>input {
+    width: 30%;
+    border: none;
+    background-color: var(--window_background_color);
+    border-bottom: solid 3px var(--window_text_color);
+    font-family: var(--font);
+    color: var(--window_text_color);
+    font-size: 30px;
+}

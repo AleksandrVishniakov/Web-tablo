@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-table</title>
+    <link rel="stylesheet" href="font/style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--<div class="bigWindow panel-left" id="settingWindow">
+        <div class="setRows">
+            <form class="setCols" name="team1">
+                <p class="text">Название команды 1</p>
+                <input name="name" placeholder="Команда 1" type="text" class="input">
+                <p class="text">Стартовый счёт</p>
+                <input name="counter" placeholder="Стартовый счёт (0)" type="text" class="input" value="0">
+            </form>
+            <form class="setCols" name="team2">
+                <p class="text">Название команды 2</p>
+                <input name="name" placeholder="Команда 2" type="text" class="input">
+                <p class="text">Стартовый счёт</p>
+                <input name="counter" placeholder="Стартовый счёт (0)" type="text" class="input" value="0">
+            </form>
+        </div>
+
+        <form name="settings" class="fSet">
+
+            <div class="radio small_radio">
+                <p class="text">Режим часов:</p>
+                <p class="text"><input name="clock" type="radio" value="timer">Таймер</p>
+                <p class="text"><input name="clock" type="radio" value="sec" checked>Секундомер</p>
+            </div>
+
+            <div class="radio small_radio">
+                <p class="text">Счётчик игр:</p>
+                <p class="text"><input name="period" type="radio" value="periods" checked>Периоды</p>
+                <p class="text"><input name="period" type="radio" value="times">Партии</p>
+            </div>
+
+            <div class="radio">
+                <p class="text"><input name="theme" type="radio" value="light_theme">Светлая тема</p>
+                <p class="text"><input name="theme" type="radio" value="dark_theme"checked>Тёмная тема</p>
+                <p class="text"><input name="theme" type="radio" value="isphera_theme">Тема Isphera</p>
+                <p class="text"><input name="theme" type="radio" value="infotech_theme">Тема Infotech</p>
+            </div>
+        </form>
+
+        <div class="buttons">
+            <button class="acceptButton" onclick="return closeWindow(true)">Сохранить</button>
+            <button class="acceptButton" onclick="return closeWindow(false)">Отмена</button>
+        </div>
+    </div>-->
+
+    <section class="modalWindow">
+        <h3 class="text">Настройка команд</h3>
+        <div class="team_settings">
+            <form class="team_set" name="team_1_settings">
+                <input type="text" placeholder="Название команды" name="team_name">
+                <input type="number" placeholder="Стартовый счёт" name="team_score" min="0" max="99">
+            </form>
+            <div class="team_wrapper"></div>
+            <form class="team_set" name="team_2_settings">
+                <input type="text" placeholder="Название команды" name="team_name">
+                <input type="number" placeholder="Стартовый счёт" name="team_score" min="0" max="99">
+            </form>
+        </div>
+
+        <form class="setButtons" name="settings">
+            <input type="number" placeholder="Прибавка к счёту (1)" name="add_score" min="1" max="99">
+            <select name="theme">
+                <option value="dark">Тёмная тема</option>
+                <option value="light">Светлая тема</option>
+                <option value="isphera">Тема Инфосфера</option>
+                <option value="infotech">Тема Инфотех</option>>
+            </select>
+        </form>
+
+        <form class="setButtons" name="timerSet">
+            <select name="timerType">
+                <option value="stopwatch">Секундомер</option>
+                <option value="timer">Таймер</option>
+            </select>
+            <div>
+                <input type="number" placeholder="мин" name="min" min="0" max="99" value="0">
+                <p class="text">:</p>
+                <input type="number" placeholder="сек" name="sec" min="0" max="59" value="0">
+            </div>
+        </form>
+
+        <div class="setButtons">
+            <button id="save">Сохранить</button>
+            <button  id="cancel">Отмена</button>
+        </div>
+    </section>
+
+    <div class="table" id="table">
+        <div class="teams_info">
+            <div class="teams">
+                <p id="team_name_1">
+                    Команда 1
+                </p>
+                <p id="team_name_2">
+                    Команда 2
+                </p>
+            </div>
+
+            <div class="counts">
+                <div class="counter_values">
+                    <div id="team1_counter">
+                        <canvas id="team1_1"></canvas>
+                    </div>
+                    <div id="team1_counter">
+                        <canvas id="team1_2"></canvas>
+                    </div>
+                </div>
+                <div class="counter_values">
+                    <div id="team2_counter">
+                        <canvas id="team2_1"></canvas>
+                    </div>
+                    <div id="team2_counter">
+                        <canvas id="team2_2"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cActions">
+                <div class="plus_minus">
+                    <button class="plusButton" onclick="return teamButtonPressed('+', 1)">+</button>
+                    <button class="plusButton" onclick="return teamButtonPressed('-', 1)">-</button>
+                </div>
+
+                <div class="plus_minus">
+                    <button class="plusButton" onclick="return teamButtonPressed('+', 2)">+</button>
+                    <button class="plusButton" onclick="return teamButtonPressed('-', 2)">-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer">
+            <canvas id="min1"></canvas>
+            <canvas id="min2"></canvas>
+            <p class="point">
+                .
+            </p>
+            <canvas id="sec1"></canvas>
+            <canvas id="sec2"></canvas>
+
+            <div class="timerButtons">
+                <button class="tButton play"></button>
+                <button class="tButton pause"></button>
+                <button class="tButton reset"></button>
+            </div>
+        </div>
+
+        <div id="periods">
+            <p id="periodName">
+                Период
+            </p>
+            <div id="timerCanvas">
+                <canvas id="periodCanvas"></canvas>
+            </div>
+
+            <div class="periodButton">
+                <button class="tButton" onclick="return periodPressed('+')">+</button>
+                <button class="tButton" onclick="return periodPressed('-')">-</button>
+            </div>
+        </div>
+
+        <button class="setWindow settings"></button>
+    </div>
+
+    <!--<script src="js/script.js"></script>-->
+    <script src="js/CONST.js"></script>
+    <script src="js/canvas_initialization.js"></script>
+    <script src="js/time_manager.js"></script>
+    <script src="js/team_manager.js"></script>
+    <script src="js/form_manager.js"></script>
+    <script src="js/theme_manager.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
